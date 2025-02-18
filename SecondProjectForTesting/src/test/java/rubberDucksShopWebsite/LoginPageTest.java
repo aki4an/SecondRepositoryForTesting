@@ -8,6 +8,8 @@ public class LoginPageTest extends TestBase {
     private String regularUserEmail = "testduckshop@mail.ru";
     private String regularUserPassword = "234";
     private String regularUserFirstAndLastName = "Name Surname";
+    private String incorrectPassword = "24";
+    private String emptyPassword = "";
 
     @Test
     public void shouldLogInToAccount() {
@@ -19,14 +21,14 @@ public class LoginPageTest extends TestBase {
     @Test
     public void shouldAppearMessageAboutInvalidLoginDetails() {
         LoginPage loginPage = new LoginPage();
-        loginPage.attemptLogin(regularUserEmail, "24");
+        loginPage.attemptLogin(regularUserEmail, incorrectPassword);
         loginPage.validateMessage("Wrong password or the account is disabled, or does not exist");
     }
 
     @Test
     public void shouldAppearMessageAboutUnenteredLoginDetails() {
         LoginPage loginPage = new LoginPage();
-        loginPage.attemptLogin(regularUserEmail, "");
+        loginPage.attemptLogin(regularUserEmail, emptyPassword);
         loginPage.validateMessage("You must provide both email address and password.");
     }
 }
