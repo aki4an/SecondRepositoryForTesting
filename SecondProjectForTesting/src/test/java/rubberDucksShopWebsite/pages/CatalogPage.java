@@ -1,5 +1,6 @@
 package rubberDucksShopWebsite.pages;
 
+import io.qameta.allure.Step;
 import rubberDucksShopWebsite.elements.HeaderMenu;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -12,6 +13,7 @@ public class CatalogPage {
         headerMenu = new HeaderMenu();
     }
 
+    @Step("Select yellow duck")
     public void selectYellowDuck() {
         $(getLocator("CatalogPage.yellowDuck")).click();
     }
