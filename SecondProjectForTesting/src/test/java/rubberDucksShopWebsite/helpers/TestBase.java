@@ -20,8 +20,8 @@ public class TestBase {
         DesiredCapabilities caps = new DesiredCapabilities();
 
         switch (browser) {
-            case chrome -> caps.setBrowserName(CHROME);
-            case edge -> caps.setBrowserName(EDGE);
+            case chrome -> Configuration.browser = CHROME;
+            case edge -> Configuration.browser = EDGE;
         }
         switch (platform) {
             case win11 -> caps.setPlatform(Platform.WIN11);
